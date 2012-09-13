@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    {% block head %}
+    <link rel="stylesheet" href="/static/style.css" />
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <title>{% block title %}Tweets{% endblock %} - My Webpage</title>
+    {% endblock %}
+</head>
+<body>
+    {% for message in request.session.pop_flash() %}
+        <div class=flash>{{ message }}</div>
+    {% endfor %}
+
+    <div class="container">
+        <div class="row">
+            <div class="span9">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+    <footer>
+        {% block footer %}
+        <p>&copy; Copyright 2008 by <a href="http://domain.invalid/">you</a>.</p>
+        {% endblock %}
+    </footer>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+</body>

@@ -1,0 +1,11 @@
+{% extends "layout.jinja2" %}
+{% block title %}Tweets{% endblock %}
+{% block content %}
+  <h1>{{context.__dotted_path__}}</h1>
+    {% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+    <section>
+        {% for tweet in context %}
+          <article>{{ tweet['text'] | safe }}</article>
+        {% endfor %}
+    </section>
+{% endblock %}
